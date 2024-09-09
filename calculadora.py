@@ -5,7 +5,8 @@ ventana = tk.Tk()
 ventana.title('Mi Calculadora')
 
 # Cambiar icono de la calculadora
-ventana.iconbitmap("calculadora.ico")
+ruta_icono ="C:/Users/Alex/Documents/Calculadora-Python/calculadora.ico"
+ventana.iconbitmap(ruta_icono)
 
 # Almacenar la expresión matemática
 expresion = ""
