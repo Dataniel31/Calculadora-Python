@@ -23,9 +23,9 @@ def pulsar_tecla(tecla):
 
     if mostrando_resultado:
         if tecla.isdigit() or tecla == '.':
-            expresion = str(tecla)  # Inicia una nueva expresión si se presiona un número o punto
+            expresion = str(tecla)  # Iniciar una nueva expresión si se presiona un número o punto
         else:
-            expresion += str(tecla)  # Continúa la expresión si es un operador
+            expresion += str(tecla)  # Continua la expresión si es un operador
         mostrando_resultado = False
     else:
         expresion += str(tecla)
