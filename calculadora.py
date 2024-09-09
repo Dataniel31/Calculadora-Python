@@ -7,6 +7,20 @@ ventana.title('Mi Calculadora')
 # Cambiar icono de la calculadora
 ventana.iconbitmap("calculadora.ico")
 
+# almacenar operacion (expresion matematica)
+expresion = ""
+
+# almacenar el estado del visor
+resultado = False
+
+
+# Funcion para actualizar la expresion en el cuadro de texto
+def pulsar_tecla(tecla):
+    global expresion
+    expresion = expresion + str(tecla)
+    visor_texto.set(expresion)
+
+
 # configurar el tamaño dinamico de las columnas y filas
 for i in range(5):
     ventana.grid_rowconfigure(i, weight=1)
@@ -36,11 +50,16 @@ botones = [
 ]
 # Crear y posicionar los botons (excepto "=")
 for (texto, fila, columna) in botones:
+    if texto == 'c':
+        pass
+    else:
+        comando = lambda x=texto: pulsar_tecla(x)
     tk.Button(ventana,
               text=texto,
               padx=20,
               pady=20,
-              font=('Helvetica', 20)
+              font=('Helvetica', 20),
+              command=comando
               ).grid(row=fila,
                      column=columna,
                      sticky='nsew')
@@ -50,7 +69,8 @@ tk.Button(ventana,
           text="=",
           padx=20,
           pady=20,
-          font=('Helvetica', 40)
+          font=('Helvetica', 40),
+          command=comando
           ).grid(row=5,
                  column=0,
                  columnspan=4,
